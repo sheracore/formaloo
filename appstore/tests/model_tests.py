@@ -65,7 +65,7 @@ class AppModelTest(TestCase):
 
     def test_create_app_with_invalid_status(self):
         # Try creating an app with an invalid verification status
-        with self.assertRaises(ValidationError): # TODO: does it get ValidationError??
+        with self.assertRaises(ValidationError):
             App.objects.create(
                 title='Invalid Status App',
                 description='App with invalid status.',
