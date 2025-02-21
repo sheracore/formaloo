@@ -16,5 +16,7 @@ mark_as_pending.short_description = 'Mark selected apps as Pending'
 class AppAdmin(admin.ModelAdmin):
     list_display = ['title', 'user', 'verification_status', 'category', 'created_at', 'updated_at']
     actions = [mark_as_verified, mark_as_rejected, mark_as_pending]
+    list_filter = ['verification_status']  # Filter by verification_status in the sidebar
+
 
 admin.site.register(App, AppAdmin)
