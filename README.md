@@ -1,14 +1,14 @@
 # Formaloo
 
 # Running the project using docker
-### If you have running postgres service in your local server please stop the service or change the port in docker-compose
+### If you have run the Postgres service in your local server please stop the service or change the port in docker-compose
 * **by running the below command-line**:
   * **Dockerfile(django-project) will be build**
     * **requirements will be installed**
     * **8000 port will be exposed**
   * **Postgres image will be downloaded**
   * **migrate and collectstatic commands will be run**
-  * **project will be run and listen on 8000**
+  * **project will be run and listened on 8000**
 * **Also the containers will be connected together and each one will have persistent storage(volume)**
 ```angular2html
 docker-compose up --build
