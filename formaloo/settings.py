@@ -25,13 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7pk&@_06#4#ltu_k-!vz!zhco(1mk6#0sovsf5k*t$z*frf4_f'
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG") == "True"
 IS_PROD = not DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')] if os.environ.get('ALLOWED_HOSTS') else ['*']
 
 
 # Application definition
@@ -86,10 +86,10 @@ WSGI_APPLICATION = 'formaloo.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("FORMALOO_DATABASE_NAME"),
-        "USER": os.environ.get("FORMALOO_DATABASE_USER"),
-        "PASSWORD": os.environ.get("FORMALOO_DATABASE_PASSWORD"),
-        "HOST": os.environ.get("FORMALOO_DATABASE_HOST"),
+        "NAME": os.environ.get("DATABASE_NAME"),
+        "USER": os.environ.get("DATABASE_USERNAME"),
+        "PASSWORD": os.environ.get("DATABASE_PASSWORD"),
+        "HOST": os.environ.get("DATABASE_HOST"),
         "OPTIONS": {
             "client_encoding": "UTF8",
         },
@@ -152,6 +152,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Add this line to specify where collected static files will be stored
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
