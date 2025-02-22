@@ -3,3 +3,4 @@ djangorestframework_simplejwt
 Django==4.2
 python-dotenv
 psycopg2-binary
+drf_yasg
