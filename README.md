@@ -59,8 +59,8 @@ python manage.py runserver 0.0.0.0:8000
 
 ## Running tests
 ```angular2html
-python manage.py test
-or using pycharm ide
+- python manage.py test
+- or using pycharm ide
 ```
 
 ### On production
