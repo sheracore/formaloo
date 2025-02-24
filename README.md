@@ -26,7 +26,7 @@ docker-compose run django-web python manage.py test
 ```
 
 # Runnign the project without docker
-## First of all, change database host to localhost 
+## First of all, change database host to 'localhost' in settings.py
 
 ## Postgres
 Change values in brackets to what you set in .env file for db name, user and password.
